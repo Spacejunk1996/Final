@@ -9,6 +9,15 @@
     <title>{{title}}</title>
 </header>
 <body>
+    <nav class="User">
+        <ul>
+            {{#each status}}
+            <li>
+                <a href={{link}}>{{content}}</a>
+            </li>
+            {{/each}}
+        </ul>
+    </nav>
     <form method="POST" action="/tabs/search" id="search">
         <input type="text" name="name">
         <button type="submit">Search</button>

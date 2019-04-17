@@ -5,5 +5,5 @@ const users = require("./users");
 module.exports = {
     comments: comments,
     tabs: tabs,
-    users: users
+    users: users,
 }

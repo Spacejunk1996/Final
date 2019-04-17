@@ -118,7 +118,7 @@ async function getNAME(name) {
             if(err) {
                 throw "database connection failed!";
             }
-            var find = db.collection("tabs").find({"tabName": "/" + name + "/i"});
+            var find = db.collection("tabs").find({tabName: {$regex: name, $options: "$i"}});
             find.each((err, ress) => {
                 if(err) {
                     db.close();

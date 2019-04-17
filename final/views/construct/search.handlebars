@@ -1,0 +1,23 @@
+<div class="searchHead">
+    <ul>
+        <li>
+            <span class="headName">Tab Name</span>
+            <span class="headAuthor">Author</span>
+            <span class="headOperation">Operation</span>
+        </li>
+    </ul>
+</div>
+<div class="searchContent">
+    <ul>
+    {{#each data}}
+        <li>
+            <span class="tabName"><a href="/tabs/?tabId={{_id}}">{{tabName}}</a></span>
+            <span class="author">{{author}}</span>
+            <span class="operation">
+                <a href="javascript:void(0);">Rename</a>|
+                <a href="javascript:void(0);">Delete</a>
+            </span>
+        </li>
+    {{/each}}
+    </ul>
+</div>
