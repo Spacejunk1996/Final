@@ -2,6 +2,9 @@
     <ul>
         <li>
             <span class="tab">{{tab}}</span>
+            <span class="rename"><a href="/tabs/modifytabs/{{id}}">Rename</a></span>
+            <span>|</span>
+            <span class="delete"><a href="javascript:void(0);" onclick={{delete}}>Delete</a></span>
         </li>
         <li>
             <span class="song">{{song}}</span>
@@ -16,4 +19,22 @@
             <span class="thumbsdown">thumbs down:{{thumbsdown}}</span>
         </li>
     </ul>
+</div>
+
+<div class="comments">
+    <ul>
+        {{#each comments}}
+        <li>
+            <span class="author">{{commentAuthor}}</span>
+            <span class="content">{{comment}}</span>
+        </li>
+        {{/each}}
+    </ul>
+    <form method="POST" action="/comments">
+        <input name="commentAuthor" type="hidden" value={{author}}>
+        <input name="tabId" type="hidden" value={{id}}>
+        <label for="content">Write your comment:</label>
+        <textarea name="content" rows="10" cols="100" ></textarea></br>
+        <button type="submit">Submit</button>
+    </form>
 </div>

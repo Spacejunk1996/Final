@@ -1,8 +1,12 @@
+<div class="error">
+    <p>{{error}}</p>
+</div>
 <div class="searchHead">
     <ul>
         <li>
             <span class="headName">Tab Name</span>
             <span class="headAuthor">Author</span>
+            <span class="headOperation">Operation</span>
         </li>
     </ul>
 </div>
@@ -12,6 +16,12 @@
         <li>
             <span class="tabName"><a href="/tabs/?tabId={{_id}}">{{tabName}}</a></span>
             <span class="author">{{author}}</span>
+            <span class="rename">
+                <a href="/tabs/modifytabs/{{_id}}">Rename</a>|
+            </span>
+            <span class="delete">
+                <a href="javascript:void(0);" onclick='deleteTabs("{{_id}}")'>Delete</a>
+            </span>
         </li>
     {{/each}}
     </ul>

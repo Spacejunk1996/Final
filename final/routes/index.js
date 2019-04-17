@@ -3,6 +3,7 @@ const signup = require("./signUp");
 const tabs = require("./tabs");
 const head = require("./head");
 const logout = require("./logout");
+const comments = require("./comments");
 
 const constructorMethod = app =>{
     app.get("/", (req, res) => {
@@ -12,6 +13,7 @@ const constructorMethod = app =>{
     app.use("/signup", signup);
     app.use("/tabs", tabs);
     app.use("/logout", logout);
+    app.use("/comments", comments);
 
     app.use("*", (req, res) => {
         res.redirect("/");

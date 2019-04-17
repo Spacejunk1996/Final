@@ -9,12 +9,14 @@ async function create(tabId, commentAuthor, commentAuthorId, comment) {
     if(tabId == undefined || commentAuthor == undefined || commentAuthorId == undefined || comment == undefined)
         throw "parameters are missing.";
     var result = [];
+    var newTabId = new Object(tabId);
+    var newCommentAuthorId = new Object(commentAuthorId);
     var promise = new Promise(function(resolve) {
         mongo.connect(url,(err, db) => {
             if(err) {
                 throw "database connection failed!";
             }
-            db.collection('comments').insert({"tabId": tabId, "commentAuthor": commentAuthor, "commentAuthorId": commentAuthorId, "comment": comment}, (err, res) => {
+            db.collection('comments').insert({"tabId": newTabId, "commentAuthor": commentAuthor, "commentAuthorId": newCommentAuthorId, "comment": comment}, (err, res) => {
                 if(err) {
                     db.close();
                     throw "insert error";
@@ -62,8 +64,6 @@ async function getALL() {
 
 async function getAll() {
     const res = await getALL();
-    if(res.length == 0)
-        throw "no such data";
     return res;
 }
 
@@ -103,8 +103,6 @@ async function getID(id) {
 
 async function getId(id) {
     const res = await getID(id);
-    if(res.length == 0)
-        throw "no such data";
     return res;
 }
 
@@ -143,8 +141,6 @@ async function getNAME(name) {
 
 async function getName(name) {
     const res = await getNAME(name);
-    if(res.length == 0)
-        throw "no such data";
     return res;
 }
 
@@ -154,12 +150,13 @@ async function getTAB(name) {
     if(typeof name != 'string')
         throw "parameter is error format";
     var res = [];
+    var tabId = new Object(name);
     var promise = new Promise(function(resolve) {
         mongo.connect(url,(err, db) => {
             if(err) {
                 throw "database connection failed!";
             }
-            var find = db.collection("comments").find({"tabId": name});
+            var find = db.collection("comments").find({"tabId": tabId});
             find.each((err, ress) => {
                 if(err) {
                     db.close();
@@ -183,8 +180,6 @@ async function getTAB(name) {
 
 async function getTab(name) {
     const res = await getTAB(name);
-    if(res.length == 0)
-        throw "no such data";
     return res;
 }
 

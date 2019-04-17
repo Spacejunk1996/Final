@@ -6,11 +6,13 @@ if (navigator.appName.indexOf("Explorer") > -1)  {
     second = document.getElementById('totalSecond').textContent; 
 } 
 
-setInterval("redirect()", 1000); 
+function auto(URL) {    
+    setInterval("redirect('" + URL + "')", 1000); 
+}
 
-function redirect() { 
+function redirect(URL) { 
     if (second < 0) { 
-        location.href = '/'; 
+        location.href = URL; 
     } else { 
         if (navigator.appName.indexOf("Explorer") > -1) { 
             document.getElementById('totalSecond').innerText = second--; 

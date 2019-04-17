@@ -1,14 +1,14 @@
-<div class="newTab">
-    <form method="POST" action="/tabs/upload">
+<div class="TabModify">
+    <form method="POST" action="/tabs/{{operation}}">
         <label for="tabName">Tab Name:</label>
-        <input id="tabName" type="text" name="tabName"/>
+        <input id="tabName" type="text" name="tabName" value={{tab}}></input>
         <label for="songName">Song Name:</label>
-        <input id="songName" type="text" name="songName"/></br>
+        <input id="songName" type="text" name="songName" value={{song}}></input></br>
         <label for="artistName">Artist Name:</label>
-        <input id="artistName" type="text" name="artistName"/>
+        <input id="artistName" type="text" name="artistName" value={{artist}}></input>
         <label for="authorName">Author Name:</label>
         <input id="authorName" type="text" readonly="readonly" name="authorName" value={{author}}></input></br>
-        <textarea name="content" rows="10" cols="100"></textarea></br>
+        <textarea name="content" rows="10" cols="100" >{{content}}</textarea></br>
         <button type="submit">Submit</button>
     </form>
 </div>

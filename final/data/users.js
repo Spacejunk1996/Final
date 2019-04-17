@@ -144,8 +144,6 @@ async function getNAME(name) {
 
 async function getName(name) {
     const res = await getNAME(name);
-    if(res.length == 0)
-        throw "no such data";
     return res;
 }
 
