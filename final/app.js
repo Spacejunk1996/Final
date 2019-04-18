@@ -20,5 +20,3 @@ app.set("view engine", "handlebars");
 app.listen(3000, () => {
     console.log("The Server Has Been Connected! Port Is 3000");
 });
-
-console.log();
